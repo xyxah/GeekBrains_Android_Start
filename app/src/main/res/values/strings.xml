@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">GeekBrains Android Start</string>
+
+    <!-- Calc Numbers -->
+    <string name="calc_btn_1_text">1</string>
+    <string name="calc_btn_2_text">2</string>
+    <string name="calc_btn_3_text">3</string>
+    <string name="calc_btn_4_text">4</string>
+    <string name="calc_btn_5_text">5</string>
+    <string name="calc_btn_6_text">6</string>
+    <string name="calc_btn_7_text">7</string>
+    <string name="calc_btn_8_text">8</string>
+    <string name="calc_btn_9_text">9</string>
+    <string name="calc_btn_0_text">0</string>
+
+    <!-- Calc Operations -->
+    <string name="calc_btn_plus_text">+</string>
+    <string name="calc_btn_minus">-</string>
+    <string name="calc_btn_multiply_text">*</string>
+    <string name="calc_btn_slash_text">/</string>
+    <string name="calc_btn_dot_text">.</string>
+    <string name="calc_btn_equals_text">=</string>
 </resources>
