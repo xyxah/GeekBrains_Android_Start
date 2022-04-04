@@ -20,4 +20,6 @@
     <string name="calc_btn_slash_text">/</string>
     <string name="calc_btn_dot_text">.</string>
     <string name="calc_btn_equals_text">=</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

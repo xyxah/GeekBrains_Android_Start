@@ -1,44 +1,20 @@
 package com.geekbrains.androidstart
 
 import android.os.Bundle
-import android.os.Parcelable
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var textView: TextView
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.calc)
+        setContentView(R.layout.activity_main)
 
-        initView()
-    }
-
-    override fun onSaveInstanceState(instanceState: Bundle) {
-        super.onSaveInstanceState(instanceState)
-        val calcText = CalcText(textView.text.toString())
-        instanceState.putParcelable("text", calcText)
-    }
-
-    override fun onRestoreInstanceState(instanceState: Bundle) {
-        super.onRestoreInstanceState(instanceState)
-        val textCalcGet = instanceState.getParcelable<Parcelable>("text") as CalcText
-        textView.text = textCalcGet.text.toString()
-    }
-
-    private fun initView() {
-        textView = findViewById(R.id.calc_text)
-        val buttons = arrayOfNulls<MaterialButton>(16)
-        for (i in 0..15) {
-            val id = resources.getIdentifier("calc_btn_$i", "id", packageName)
-            buttons[i] = findViewById(id)
-            buttons[i]?.setOnClickListener {
-                textView.append(buttons[i]?.text)
-            }
-        }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
     }
 }
