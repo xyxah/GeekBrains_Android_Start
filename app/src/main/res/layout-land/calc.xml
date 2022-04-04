@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/calc_text"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:padding="20dp"
         android:textColor="@color/purple_500"
-        android:textSize="@dimen/calc_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/calc_tab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="@dimen/calc_text_size" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/calc_tab"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +28,7 @@
             android:id="@+id/calc_btn_1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_1_text"
@@ -38,13 +37,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_4"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_2"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_2_text"
@@ -53,13 +53,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_5"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_3"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_1" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_3"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_3_text"
@@ -68,13 +69,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_6"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_10"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_2" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_10"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_plus_text"
@@ -83,13 +85,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_11"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_3" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_3"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_4"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_4_text"
@@ -98,13 +101,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_7"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_5"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_5"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_5_text"
@@ -113,13 +117,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_8"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_6"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_4" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_4"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_6"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_6_text"
@@ -128,13 +133,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_9"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_11"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_5" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_5"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_3" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_11"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_minus"
@@ -143,13 +149,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_6" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_6"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_10" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_7"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_7_text"
@@ -158,13 +165,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_0"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_8"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_4" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_8"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_8_text"
@@ -173,13 +181,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_13"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_9"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_7" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_7"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_9"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_9_text"
@@ -188,14 +197,15 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_14"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_12"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_8" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_8"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_6" />
 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_12"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_multiply_text"
@@ -204,13 +214,14 @@
             app:layout_constraintBottom_toTopOf="@+id/calc_btn_15"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_9" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_9"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_11" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_0"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_0_text"
@@ -219,13 +230,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_13"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_7" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_13"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_dot_text"
@@ -234,13 +246,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_14"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_0" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_0"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_8" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_14"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_equals_text"
@@ -249,13 +262,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/calc_btn_15"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_13" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_13"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_9" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_btn_15"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/calc_btn_size"
+            android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/calc_btn_slash_text"
@@ -264,8 +278,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/calc_btn_14" />
+            app:layout_constraintStart_toEndOf="@+id/calc_btn_14"
+            app:layout_constraintTop_toBottomOf="@id/calc_btn_12" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
