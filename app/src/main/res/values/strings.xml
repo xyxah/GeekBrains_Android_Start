@@ -15,7 +15,7 @@
 
     <!-- Calc Operations -->
     <string name="calc_btn_plus_text">+</string>
-    <string name="calc_btn_minus">-</string>
+    <string name="calc_btn_minus_text">-</string>
     <string name="calc_btn_multiply_text">*</string>
     <string name="calc_btn_slash_text">/</string>
     <string name="calc_btn_dot_text">.</string>

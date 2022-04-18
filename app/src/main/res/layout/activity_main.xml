@@ -1,21 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+<TextView
+    android:id="@+id/calc_text"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    style="@style/CalcTextView"
+    app:layout_constraintBottom_toTopOf="@+id/calc_tab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/calc_tab"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    style="@style/CalcBtnLayout"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_1"
+        style="@style/CalcButton"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_1_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_4"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_2"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_2_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_5"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_3"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_3_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_6"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_10"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_10"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_plus_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_4"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_4_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_7"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_5"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_5_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_8"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_4" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_6"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_6_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_9"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_11"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_11"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_minus"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_6" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_7"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_7_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_0"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_8"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_8_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_13"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_7" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_9"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_9_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_14"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_8" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_12"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_multiply_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/calc_btn_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_9" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_0"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_0_text"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/main_navigation" />
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_13"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_13"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_dot_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_14"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_14"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_equals_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/calc_btn_15"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_13" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn_15"
+        style="@style/CalcButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/calc_btn_size"
+        android:text="@string/calc_btn_slash_text"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calc_btn_14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
