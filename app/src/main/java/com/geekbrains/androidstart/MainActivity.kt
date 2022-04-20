@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var textView: TextView

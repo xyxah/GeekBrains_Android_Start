@@ -5,7 +5,7 @@ import android.os.Parcelable
 
 data class CalcText(
     var text: String?
-) : Parcelable {
+):Parcelable {
     constructor(parcel: Parcel) : this(parcel.readString()) {
     }
 
