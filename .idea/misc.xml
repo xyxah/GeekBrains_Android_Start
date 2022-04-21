@@ -13,8 +13,12 @@
         <entry key="..\:/Programming/AndroidProjects/GeekBrainsAndroidStart/app/src/main/res/layout/lesson1_edittexts.xml" value="0.35688405797101447" />
         <entry key="..\:/Programming/AndroidProjects/GeekBrainsAndroidStart/app/src/main/res/layout/lesson2_calc.xml" value="0.35688405797101447" />
         <entry key="..\:/Programming/AndroidProjects/GeekBrainsAndroidStart/app/src/main/res/layout/lesson2_calc_1.xml" value="0.35688405797101447" />
+        <entry key="..\:/Programming/AndroidProjects/GeekBrains_Android_Start/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2145" />
+        <entry key="..\:/Programming/AndroidProjects/GeekBrains_Android_Start/app/src/main/res/drawable/ic_settings_black_theme.xml" value="0.2145" />
         <entry key="..\:/Programming/AndroidProjects/GeekBrains_Android_Start/app/src/main/res/layout-land/activity_main.xml" value="0.19947916666666668" />
         <entry key="..\:/Programming/AndroidProjects/GeekBrains_Android_Start/app/src/main/res/layout/activity_main.xml" value="0.35462962962962963" />
+        <entry key="..\:/Programming/AndroidProjects/GeekBrains_Android_Start/app/src/main/res/layout/activity_settings.xml" value="0.33" />
+        <entry key="..\:/Programming/AndroidProjects/GeekBrains_Android_Start/app/src/main/res/layout/content_settings.xml" value="0.3625" />
       </map>
     </option>
   </component>
