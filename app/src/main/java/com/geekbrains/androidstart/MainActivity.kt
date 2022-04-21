@@ -2,42 +2,48 @@ package com.geekbrains.androidstart
 
 import android.os.Bundle
 import android.os.Parcelable
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.geekbrains.androidstart.databinding.ActivityMainBinding
 import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var textView: TextView
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.calc)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initView()
     }
 
     override fun onSaveInstanceState(instanceState: Bundle) {
         super.onSaveInstanceState(instanceState)
-        val calcText = CalcText(textView.text.toString())
+        val calcText = CalcText(binding.calcText.text.toString())
         instanceState.putParcelable("text", calcText)
     }
 
     override fun onRestoreInstanceState(instanceState: Bundle) {
         super.onRestoreInstanceState(instanceState)
         val textCalcGet = instanceState.getParcelable<Parcelable>("text") as CalcText
-        textView.text = textCalcGet.text.toString()
+        binding.calcText.text = textCalcGet.text.toString()
     }
 
-    private fun initView() {
-        textView = findViewById(R.id.calc_text)
-        val buttons = arrayOfNulls<MaterialButton>(16)
-        for (i in 0..15) {
-            val id = resources.getIdentifier("calc_btn_$i", "id", packageName)
-            buttons[i] = findViewById(id)
-            buttons[i]?.setOnClickListener {
-                textView.append(buttons[i]?.text)
-            }
-        }
+    private fun initView(){
+        binding.calcBtn0.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn1.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn2.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn3.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn4.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn5.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn6.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn7.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn8.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        binding.calcBtn9.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+    }
+
+    private fun calcBtnNumberClick(text: String){
+        binding.calcText.append(text)
     }
 }
