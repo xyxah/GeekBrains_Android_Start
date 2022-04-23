@@ -1,13 +1,12 @@
 package com.geekbrains.androidstart
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.geekbrains.androidstart.databinding.ActivityMainBinding
-import com.google.android.material.button.MaterialButton
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,47 +33,100 @@ class MainActivity : AppCompatActivity() {
         binding.calcText.text = textCalcGet.text.toString()
     }
 
-    private fun initView(){
-        //numbers
-        binding.calcBtn0.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn1.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn2.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn3.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn4.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn5.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn6.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn7.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn8.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn9.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+    private fun initView() {
+        with(binding) {
 
-        //operations
-        binding.calcBtnDot.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnMultiply.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnSlash.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnPlus.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnMinus.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+            //numbers
+            calcBtn0.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn1.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn2.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn3.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn4.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn5.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn6.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn7.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn8.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn9.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
 
-        //calculate
-        binding.calcBtnEquals.setOnClickListener { calculate(binding.calcText.text.toString()) }
+            //operations
+            calcBtnDot.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnMultiply.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnSlash.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnPlus.setOnClickListener {
+                (it as? Button?)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnMinus.setOnClickListener {
+                (it as? Button?)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
 
-        //theme
-        binding.btnTheme!!.setOnClickListener {
-            if (binding.btnTheme!!.isChecked) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            else  AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            //calculate
+            calcBtnEquals.setOnClickListener { calculate() }
+
+            //settings
+            btnSettings.setOnClickListener {
+                val runSettings = Intent(this@MainActivity, SettingsActivity::class.java)
+                startActivity(runSettings)
+            }
         }
+
     }
 
-    private fun calcBtnNumberClick(text: String){
+    private fun calcBtnNumberClick(text: String) {
         binding.calcText.append(text)
     }
 
-    private fun calculate(text: String){
+    private fun calculate() {
 
-        var finalText : String? = ""
-        var countOperations = getAllOperations(text, operations)
+        var text: String = binding.calcText.text.toString()
 
-        while (countOperations != 0){
+        var finalText: String? = ""
+        var countOperations = getCountOperations(text, operations)
+
+        while (countOperations != 0) {
             finalText = getMainOperation(text, operations)
+            if (finalText != null)
+                text = finalText
             countOperations--
         }
 
@@ -83,7 +135,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Получение количества операций
-    private fun getAllOperations(text: String, operations: Map<Int,Char>): Int {
+    private fun getCountOperations(text: String, operations: Map<Int, Char>): Int {
         var count = 0
         for (i in 0 until operations.count())
             count += text.filter { it == operations[i] }.count()
@@ -91,17 +143,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Получение главной операции
-    private fun getMainOperation(text: String, operations: Map<Int,Char>): String? {
+    private fun getMainOperation(text: String, operations: Map<Int, Char>): String? {
         var mainOperation: Char? = null
 
-        for (i in 1..operations.count())
+        for (i in 0 until operations.count())
             if (operations[i]?.let { text.contains(it) } == true) mainOperation = operations[i]
-         return cropText(mainOperation, text)
+        return cropText(mainOperation, text)
     }
 
     // Обрезка текста
-    private fun cropText(operation: Char?,text: String): String?{
-        if (operation != null){
+    private fun cropText(operation: Char?, text: String): String? {
+        if (operation != null) {
 
             val indexOperation = text.indexOf(operation)
 
@@ -111,27 +163,27 @@ class MainActivity : AppCompatActivity() {
             var endPart = text.substring(indexOperation + 1, text.length)
             val secondNumber = getNumber(endPart, false)
 
+            //todo доделать операции с отрицательными и дробными числами
+            if (firstNumber.isEmpty() && secondNumber.isNotEmpty()) return text
+
             if (firstNumber.isNotEmpty() && secondNumber.isNotEmpty()) {
                 val result = makeOperation(operation, firstNumber, secondNumber)
 
                 if (result != null) {
-
                     startPart = startPart.substring(0, startPart.lastIndexOf(firstNumber))
                     endPart = endPart.replace(secondNumber, "")
 
                     return startPart + result + endPart
-
                 } else Toast.makeText(this, "Ошибка при сложении частей", Toast.LENGTH_SHORT).show()
-            }
-            else Toast.makeText(this, "Ошибка при получение чисел", Toast.LENGTH_SHORT).show()
-        }
-        else Toast.makeText(this,"Операция отсутствует", Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(this, "Ошибка при получение чисел", Toast.LENGTH_SHORT).show()
+        } else Toast.makeText(this, "Операция отсутствует", Toast.LENGTH_SHORT).show()
+
         return null
     }
 
     // Получение числа
-    private fun getNumber(text: String, firstNumber: Boolean): String{
-        var number: String = ""
+    private fun getNumber(text: String, firstNumber: Boolean): String {
+        var number = ""
 
         if (firstNumber) {
             for (i in text.length - 1 downTo 0) {
@@ -139,8 +191,7 @@ class MainActivity : AppCompatActivity() {
                     number = text[i] + number
                 else break
             }
-        }
-        else {
+        } else {
             for (i in text.indices) {
                 if (text[i].isDigit())
                     number += text[i]
@@ -153,12 +204,21 @@ class MainActivity : AppCompatActivity() {
 
     // Подсчет операции
     private fun makeOperation(operation: Char, firstNumber: String, secondNumber: String): String? {
-        when(operation){
-            '+' -> {return (firstNumber.toInt() + secondNumber.toInt()).toString()}
-            '-' -> {return (firstNumber.toInt() - secondNumber.toInt()).toString()}
-            '*' -> {return (firstNumber.toInt() * secondNumber.toInt()).toString()}
-            '/' -> {return (firstNumber.toInt() / secondNumber.toInt()).toString()}
+        when (operation) {
+            '+' -> {
+                return (firstNumber.toInt() + secondNumber.toInt()).toString()
+            }
+            '-' -> {
+                return (firstNumber.toInt() - secondNumber.toInt()).toString()
+            }
+            '*' -> {
+                return (firstNumber.toInt() * secondNumber.toInt()).toString()
+            }
+            '/' -> {
+                return (firstNumber.toInt() / secondNumber.toInt()).toString()
+            }
         }
+
         return null
     }
 }
