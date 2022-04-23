@@ -3,11 +3,10 @@ package com.geekbrains.androidstart
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.geekbrains.androidstart.databinding.ActivityMainBinding
-import com.google.android.material.button.MaterialButton
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,41 +34,82 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        //numbers
-        binding.calcBtn0.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn1.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn2.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn3.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn4.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn5.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn6.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn7.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn8.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtn9.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+        with(binding) {
 
-        //operations
-        binding.calcBtnDot.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnMultiply.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnSlash.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnPlus.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
-        binding.calcBtnMinus.setOnClickListener { calcBtnNumberClick((it as MaterialButton).text.toString()) }
+            //numbers
+            calcBtn0.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn1.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn2.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn3.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn4.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn5.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn6.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn7.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn8.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtn9.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
 
-        //calculate
-        binding.calcBtnEquals.setOnClickListener { calculate() }
+            //operations
+            calcBtnDot.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnMultiply.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnSlash.setOnClickListener {
+                (it as? Button)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnPlus.setOnClickListener {
+                (it as? Button?)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
+            calcBtnMinus.setOnClickListener {
+                (it as? Button?)?.text?.toString()
+                    ?.let { it1 -> calcBtnNumberClick(it1) }
+            }
 
-        //settings
-        binding.btnSettings.setOnClickListener {
-            val runSettings = Intent(this@MainActivity, SettingsActivity::class.java)
-            startActivity(runSettings)
+            //calculate
+            calcBtnEquals.setOnClickListener { calculate() }
+
+            //settings
+            btnSettings.setOnClickListener {
+                val runSettings = Intent(this@MainActivity, SettingsActivity::class.java)
+                startActivity(runSettings)
+            }
         }
 
-        //theme
-//        binding.btnSettings.setOnClickListener {
-//            if (binding.btnSettings!!.isChecked) AppCompatDelegate.setDefaultNightMode(
-//                AppCompatDelegate.MODE_NIGHT_YES
-//            )
-//            else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//        }
     }
 
     private fun calcBtnNumberClick(text: String) {
@@ -137,6 +177,7 @@ class MainActivity : AppCompatActivity() {
                 } else Toast.makeText(this, "Ошибка при сложении частей", Toast.LENGTH_SHORT).show()
             } else Toast.makeText(this, "Ошибка при получение чисел", Toast.LENGTH_SHORT).show()
         } else Toast.makeText(this, "Операция отсутствует", Toast.LENGTH_SHORT).show()
+
         return null
     }
 
@@ -177,6 +218,7 @@ class MainActivity : AppCompatActivity() {
                 return (firstNumber.toInt() / secondNumber.toInt()).toString()
             }
         }
+
         return null
     }
 }
