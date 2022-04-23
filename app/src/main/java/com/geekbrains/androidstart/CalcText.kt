@@ -1,29 +1,9 @@
 package com.geekbrains.androidstart
 
-import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class CalcText(
     var text: String?
-):Parcelable {
-    constructor(parcel: Parcel) : this(parcel.readString()) {
-    }
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(text)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<CalcText> {
-        override fun createFromParcel(parcel: Parcel): CalcText {
-            return CalcText(parcel)
-        }
-
-        override fun newArray(size: Int): Array<CalcText?> {
-            return arrayOfNulls(size)
-        }
-    }
-}
+) : Parcelable
